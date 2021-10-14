@@ -11,7 +11,7 @@ for i in range(n):
             chicken.append([i, j])
         elif arr[i][j] == 1:
             people.append([i, j])
-people = people
+
 ans = []
 new_arr = list(itertools.combinations(chicken, m))
 for i in range(len(new_arr)):

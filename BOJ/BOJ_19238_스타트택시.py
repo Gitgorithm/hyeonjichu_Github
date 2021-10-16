@@ -37,7 +37,7 @@ while len(people) > 0:
         py = people[i][1]-1
         d.append([px, py, d_arr[px][py]-1, i])
     d.sort(key= lambda x: (x[2], x[0], x[1]))   #주어진 조건에 맞춰 거리, 행, 열 순으로 정렬
-    if d[0][2] == -1:    #거리가 -1이 나올 수 없음
+    if d[0][2] == -1:    #거리가 -1이 나올 수 없음 => 막혀있는 경우
         oil = -1
         break
     idx = d[0][3]   #people의 인덱스

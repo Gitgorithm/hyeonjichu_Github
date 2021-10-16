@@ -4,20 +4,19 @@ arr = [[0]*n for _ in range(n)] #자리 배열
 
 direction = [[-1, 0], [1, 0], [0, -1], [0, 1]] #상, 하, 좌, 우
 for i in range(len(s)):     #전체 학생
-    tmp = arr.copy()
     ans = []    #[j, k, 좋아하는 사람, 비어있는 자리]
-    for j in range(len(tmp)):   #배열
-        for k in range(len(tmp[j])):
-            if tmp[j][k] == 0:
+    for j in range(len(arr)):   #배열
+        for k in range(len(arr[j])):
+            if arr[j][k] == 0:
                 p = 0   #people
                 e = 0   #empty
                 for l in range(4):    #direction
                     nj = j + direction[l][0]
                     nk = k + direction[l][1]
                     if 0 <= nj < n and 0 <= nk < n:
-                        if tmp[nj][nk] == 0:
+                        if arr[nj][nk] == 0:
                             e += 1
-                        elif tmp[nj][nk] != 0 and tmp[nj][nk] in s[i][1:]:
+                        elif arr[nj][nk] != 0 and arr[nj][nk] in s[i][1:]:
                             p += 1
                 ans.append([j, k, p, e])
     ans.sort(reverse=True, key= lambda x : (x[2], x[3], -x[0], -x[1]))

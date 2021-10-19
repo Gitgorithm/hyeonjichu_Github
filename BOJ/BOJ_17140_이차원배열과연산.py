@@ -9,7 +9,7 @@ c -= 1
 time = 0
 
 #조건에 맞게 정렬 시키는 함수
-def sort1():
+def sort():
     s = 0
     for i in range(len(arr)):
         key = list(Counter(arr[i]).keys())
@@ -21,11 +21,13 @@ def sort1():
         tmp.sort(key=lambda x: (x[1], x[0]))
         arr[i] = sum(tmp, [])
         s = max(len(arr[i]), s)
+
     #가장 긴 길이에 맞춰서 0 채우기
     for i in range(len(arr)):
         if len(arr[i]) != s:
             n = s - len(arr[i])
             arr[i] += [0] * n
+            arr[i] = arr[i][:100]
 
 
 while 1:
@@ -39,11 +41,11 @@ while 1:
         break
     #행 정렬
     if len(arr) >= len(arr[0]):
-        sort1()
+        sort()
     #열 정렬
     else:
         arr = list(map(list, zip(*arr)))
-        sort1()
+        sort()
         arr = list(map(list, zip(*arr)))
 
 print(time)
